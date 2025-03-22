@@ -1,0 +1,108 @@
+[
+    {
+      "number": 1,
+      "question": "What will be the output of `console.log([] + [] + 'hello')` in JavaScript?",
+      "options": {
+        "a": "\"hello\"",
+        "b": "undefined",
+        "c": "TypeError",
+        "d": "null"
+      },
+      "answer": "a) \"hello\""
+    },
+    {
+      "number": 2,
+      "question": "Which of the following is not a valid JavaScript data type?",
+      "options": {
+        "a": "String",
+        "b": "Boolean",
+        "c": "Float",
+        "d": "Undefined"
+      },
+      "answer": "c) Float"
+    },
+    {
+      "number": 3,
+      "question": "What does `typeof NaN` return in JavaScript?",
+      "options": {
+        "a": "\"undefined\"",
+        "b": "\"NaN\"",
+        "c": "\"number\"",
+        "d": "\"null\""
+      },
+      "answer": "c) \"number\""
+    },
+    {
+      "number": 4,
+      "question": "What will be the output of `console.log(typeof null)`?",
+      "options": {
+        "a": "\"null\"",
+        "b": "\"undefined\"",
+        "c": "\"object\"",
+        "d": "\"NaN\""
+      },
+      "answer": "c) \"object\""
+    },
+    {
+      "number": 5,
+      "question": "Which method is used to convert an object to a JSON string?",
+      "options": {
+        "a": "JSON.stringify()",
+        "b": "JSON.parse()",
+        "c": "JSON.convert()",
+        "d": "JSON.toString()"
+      },
+      "answer": "a) JSON.stringify()"
+    },
+    {
+      "number": 6,
+      "question": "What is the result of `console.log(0.1 + 0.2 === 0.3)`?",
+      "options": {
+        "a": "true",
+        "b": "false"
+      },
+      "answer": "b) false"
+    },
+    {
+      "number": 7,
+      "question": "What does `!!(expression)` do in JavaScript?",
+      "options": {
+        "a": "Converts the expression to a Boolean",
+        "b": "Negates the expression",
+        "c": "Doubles the value of the expression",
+        "d": "Throws an error"
+      },
+      "answer": "a) Converts the expression to a Boolean"
+    },
+    {
+      "number": 8,
+      "question": "Which operator has the highest precedence in JavaScript?",
+      "options": {
+        "a": "&&",
+        "b": "||",
+        "c": "!",
+        "d": "=="
+      },
+      "answer": "c) !"
+    },
+    {
+      "number": 9,
+      "question": "What is the output of `console.log([] == ![])`?",
+      "options": {
+        "a": "true",
+        "b": "false"
+      },
+      "answer": "a) true"
+    },
+    {
+      "number": 10,
+      "question": "How can you prevent an object from being modified?",
+      "options": {
+        "a": "Object.seal(obj)",
+        "b": "Object.freeze(obj)",
+        "c": "Object.lock(obj)",
+        "d": "Object.protect(obj)"
+      },
+      "answer": "b) Object.freeze(obj)"
+    }
+  ]
