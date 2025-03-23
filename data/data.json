@@ -1,108 +1,490 @@
-[
+{
+  "javascript": [
     {
       "number": 1,
       "question": "What will be the output of `console.log([] + [] + 'hello')` in JavaScript?",
       "options": {
         "a": "\"hello\"",
-        "b": "undefined",
-        "c": "TypeError",
-        "d": "null"
+        "b": "\"[][]hello\"",
+        "c": "\"[object Object]hello\"",
+        "d": "\"NaNhello\""
       },
-      "answer": "a) \"hello\""
+      "answer": "a",
+      "explanation": "In JavaScript, when you add two empty arrays, they are first converted to strings, resulting in \"\". So \"\" + \"\" + \"hello\" equals \"hello\"."
     },
     {
       "number": 2,
-      "question": "Which of the following is not a valid JavaScript data type?",
+      "question": "Which method is used to add one or more elements to the end of an array and returns the new length of the array?",
       "options": {
-        "a": "String",
-        "b": "Boolean",
-        "c": "Float",
-        "d": "Undefined"
+        "a": "push()",
+        "b": "pop()",
+        "c": "concat()",
+        "d": "join()"
       },
-      "answer": "c) Float"
+      "answer": "a",
+      "explanation": "The push() method adds one or more elements to the end of an array and returns the new length of the array."
     },
     {
       "number": 3,
-      "question": "What does `typeof NaN` return in JavaScript?",
+      "question": "What's the value of `typeof null` in JavaScript?",
       "options": {
-        "a": "\"undefined\"",
-        "b": "\"NaN\"",
-        "c": "\"number\"",
-        "d": "\"null\""
+        "a": "\"null\"",
+        "b": "\"object\"",
+        "c": "\"undefined\"",
+        "d": "\"number\""
       },
-      "answer": "c) \"number\""
+      "answer": "b",
+      "explanation": "In JavaScript, typeof null returns \"object\", which is considered a bug in JavaScript."
     },
     {
       "number": 4,
-      "question": "What will be the output of `console.log(typeof null)`?",
+      "question": "Which statement creates a new function in JavaScript?",
       "options": {
-        "a": "\"null\"",
-        "b": "\"undefined\"",
-        "c": "\"object\"",
-        "d": "\"NaN\""
+        "a": "class",
+        "b": "new",
+        "c": "function",
+        "d": "create"
       },
-      "answer": "c) \"object\""
+      "answer": "c",
+      "explanation": "The function keyword is used to define a new function in JavaScript."
     },
     {
       "number": 5,
-      "question": "Which method is used to convert an object to a JSON string?",
+      "question": "What does the `===` operator do in JavaScript?",
       "options": {
-        "a": "JSON.stringify()",
-        "b": "JSON.parse()",
-        "c": "JSON.convert()",
-        "d": "JSON.toString()"
+        "a": "Assigns a value",
+        "b": "Compares values and types",
+        "c": "Compares only values",
+        "d": "Logical AND"
       },
-      "answer": "a) JSON.stringify()"
+      "answer": "b",
+      "explanation": "The strict equality operator (===) checks whether its two operands are equal, returning a Boolean result. It returns true only if the operands are of the same type and have the same value."
     },
     {
       "number": 6,
-      "question": "What is the result of `console.log(0.1 + 0.2 === 0.3)`?",
+      "question": "Which of the following is not a JavaScript data type?",
       "options": {
-        "a": "true",
-        "b": "false"
+        "a": "Boolean",
+        "b": "Float",
+        "c": "Symbol",
+        "d": "BigInt"
       },
-      "answer": "b) false"
+      "answer": "b",
+      "explanation": "Float is not a separate data type in JavaScript. Numbers in JavaScript can be integers or floating-point values, but they all fall under the 'number' data type."
     },
     {
       "number": 7,
-      "question": "What does `!!(expression)` do in JavaScript?",
+      "question": "What is the output of `console.log(2 + '2')`?",
       "options": {
-        "a": "Converts the expression to a Boolean",
-        "b": "Negates the expression",
-        "c": "Doubles the value of the expression",
-        "d": "Throws an error"
+        "a": "\"22\"",
+        "b": "4",
+        "c": "\"4\"",
+        "d": "TypeError"
       },
-      "answer": "a) Converts the expression to a Boolean"
+      "answer": "a",
+      "explanation": "In JavaScript, when you add a number and a string, the number is converted to a string and concatenated. So 2 + '2' results in \"22\"."
     },
     {
       "number": 8,
-      "question": "Which operator has the highest precedence in JavaScript?",
+      "question": "Which method is used to remove the last element from an array?",
       "options": {
-        "a": "&&",
-        "b": "||",
-        "c": "!",
-        "d": "=="
+        "a": "pop()",
+        "b": "push()",
+        "c": "shift()",
+        "d": "unshift()"
       },
-      "answer": "c) !"
+      "answer": "a",
+      "explanation": "The pop() method removes the last element from an array and returns that element."
     },
     {
       "number": 9,
-      "question": "What is the output of `console.log([] == ![])`?",
+      "question": "What does the 'use strict' directive do in JavaScript?",
       "options": {
-        "a": "true",
-        "b": "false"
+        "a": "Enables strict typing",
+        "b": "Enforces stricter parsing and error handling",
+        "c": "Makes JavaScript run faster",
+        "d": "Allows deprecated features"
       },
-      "answer": "a) true"
+      "answer": "b",
+      "explanation": "The 'use strict' directive enables strict mode, which enforces stricter parsing and error handling in your code. It helps you write cleaner code and catches common coding mistakes."
     },
     {
       "number": 10,
-      "question": "How can you prevent an object from being modified?",
+      "question": "Which of these is not a valid way to declare a variable in JavaScript?",
       "options": {
-        "a": "Object.seal(obj)",
-        "b": "Object.freeze(obj)",
-        "c": "Object.lock(obj)",
-        "d": "Object.protect(obj)"
+        "a": "var",
+        "b": "let",
+        "c": "const",
+        "d": "variable"
       },
-      "answer": "b) Object.freeze(obj)"
+      "answer": "d",
+      "explanation": "In JavaScript, variables can be declared using var, let, or const keywords. 'variable' is not a valid keyword for variable declaration."
+    }
+  ],
+  "react": [
+    {
+      "number": 1,
+      "question": "What is React?",
+      "options": {
+        "a": "A JavaScript library for building user interfaces",
+        "b": "A server-side framework",
+        "c": "A database management system",
+        "d": "A CSS framework"
+      },
+      "answer": "a",
+      "explanation": "React is a JavaScript library developed by Facebook for building user interfaces, particularly single-page applications."
+    },
+    {
+      "number": 2,
+      "question": "Which method is used to change state in a React class component?",
+      "options": {
+        "a": "this.state()",
+        "b": "this.setState()",
+        "c": "this.changeState()",
+        "d": "this.updateState()"
+      },
+      "answer": "b",
+      "explanation": "The setState() method is used to update the state of a component in React class components."
+    },
+    {
+      "number": 3,
+      "question": "What is JSX in React?",
+      "options": {
+        "a": "A JavaScript extension that allows writing HTML in React",
+        "b": "JavaScript XML Parser",
+        "c": "A React-specific JavaScript version",
+        "d": "Java Syntax Extension"
+      },
+      "answer": "a",
+      "explanation": "JSX is a syntax extension for JavaScript that looks similar to HTML and allows you to write HTML elements in JavaScript and place them in the DOM."
+    },
+    {
+      "number": 4,
+      "question": "What function is used to update state in functional components?",
+      "options": {
+        "a": "useState()",
+        "b": "setState()",
+        "c": "useEffect()",
+        "d": "useContext()"
+      },
+      "answer": "a",
+      "explanation": "The useState() hook is used to add state management to functional components in React."
+    },
+    {
+      "number": 5,
+      "question": "Which of the following is used to pass data from parent to child components?",
+      "options": {
+        "a": "State",
+        "b": "Props",
+        "c": "Context",
+        "d": "Refs"
+      },
+      "answer": "b",
+      "explanation": "Props (properties) are used to pass data from parent to child components in React."
+    },
+    {
+      "number": 6,
+      "question": "What is the purpose of useEffect() hook?",
+      "options": {
+        "a": "To handle events",
+        "b": "To perform side effects in functional components",
+        "c": "To create new components",
+        "d": "To style components"
+      },
+      "answer": "b",
+      "explanation": "The useEffect() hook is used to perform side effects in functional components, similar to componentDidMount, componentDidUpdate, and componentWillUnmount in class components."
+    },
+    {
+      "number": 7,
+      "question": "What is a key in React lists?",
+      "options": {
+        "a": "A CSS property",
+        "b": "A special attribute to identify list items uniquely",
+        "c": "An encryption method",
+        "d": "A way to access the DOM"
+      },
+      "answer": "b",
+      "explanation": "Keys are special attributes that help React identify which items have changed, are added, or are removed in lists."
+    },
+    {
+      "number": 8,
+      "question": "What is React Router used for?",
+      "options": {
+        "a": "Server-side routing",
+        "b": "Client-side routing in React applications",
+        "c": "Database queries",
+        "d": "API authentication"
+      },
+      "answer": "b",
+      "explanation": "React Router is a standard library for routing in React applications, enabling navigation between different components while maintaining a single-page application experience."
+    },
+    {
+      "number": 9,
+      "question": "What is the virtual DOM in React?",
+      "options": {
+        "a": "A complete copy of the real DOM",
+        "b": "A lightweight copy of the real DOM used for performance optimization",
+        "c": "A deprecated feature in React",
+        "d": "A DOM from a different framework"
+      },
+      "answer": "b",
+      "explanation": "The virtual DOM is a lightweight, in-memory representation of the real DOM that React uses to improve performance by minimizing direct manipulation of the actual DOM."
+    },
+    {
+      "number": 10,
+      "question": "What is Redux commonly used for in React applications?",
+      "options": {
+        "a": "Animation effects",
+        "b": "State management",
+        "c": "Server-side rendering",
+        "d": "Component styling"
+      },
+      "answer": "b",
+      "explanation": "Redux is a predictable state container for JavaScript apps, often used with React for managing application state in a more predictable way."
+    }
+  ],
+  "github": [
+    {
+      "number": 1,
+      "question": "What is GitHub?",
+      "options": {
+        "a": "A programming language",
+        "b": "A web-based platform for version control and collaboration",
+        "c": "A database management system",
+        "d": "A code editor"
+      },
+      "answer": "b",
+      "explanation": "GitHub is a web-based platform that uses Git for version control, allowing developers to collaborate on projects."
+    },
+    {
+      "number": 2,
+      "question": "What is a repository in GitHub?",
+      "options": {
+        "a": "A folder to store code",
+        "b": "A collaborative space for projects that contains all files and version history",
+        "c": "A database of users",
+        "d": "A programming language feature"
+      },
+      "answer": "b",
+      "explanation": "A repository (repo) is a central location where all files for a project are stored, along with each file's revision history."
+    },
+    {
+      "number": 3,
+      "question": "What is a pull request in GitHub?",
+      "options": {
+        "a": "A request to pull code from GitHub to local machine",
+        "b": "A proposal to merge changes from one branch to another",
+        "c": "A request to create a new repository",
+        "d": "A way to download the entire GitHub platform"
+      },
+      "answer": "b",
+      "explanation": "A pull request is a method of proposing changes to a repository, allowing others to review your code before it's merged into the main branch."
+    },
+    {
+      "number": 4,
+      "question": "What command is used to create a new Git repository locally?",
+      "options": {
+        "a": "git init",
+        "b": "git clone",
+        "c": "git commit",
+        "d": "git push"
+      },
+      "answer": "a",
+      "explanation": "The command 'git init' initializes a new Git repository in the current directory."
+    },
+    {
+      "number": 5,
+      "question": "What are GitHub Actions?",
+      "options": {
+        "a": "User activities on GitHub",
+        "b": "CI/CD workflows that automate tasks",
+        "c": "JavaScript functions",
+        "d": "GitHub's customer service team"
+      },
+      "answer": "b",
+      "explanation": "GitHub Actions are workflows that allow you to automate software development tasks including building, testing, and deploying your code."
+    },
+    {
+      "number": 6,
+      "question": "What is a fork in GitHub?",
+      "options": {
+        "a": "A command to split repositories",
+        "b": "A personal copy of someone else's repository",
+        "c": "A branch protection setting",
+        "d": "A hardware requirement"
+      },
+      "answer": "b",
+      "explanation": "A fork is a copy of a repository that allows you to freely experiment with changes without affecting the original project."
+    },
+    {
+      "number": 7,
+      "question": "What is Git?",
+      "options": {
+        "a": "The same thing as GitHub",
+        "b": "A distributed version control system",
+        "c": "A programming language",
+        "d": "A web hosting service"
+      },
+      "answer": "b",
+      "explanation": "Git is a distributed version control system for tracking changes in source code during software development. GitHub is a platform built around Git."
+    },
+    {
+      "number": 8,
+      "question": "What is a GitHub Gist?",
+      "options": {
+        "a": "A joke shared on GitHub",
+        "b": "A simple way to share snippets of code",
+        "c": "A GitHub error message",
+        "d": "A type of repository"
+      },
+      "answer": "b",
+      "explanation": "GitHub Gists are a simple way to share code snippets and other pieces of work without creating a full repository."
+    },
+    {
+      "number": 9,
+      "question": "What does 'git push' do?",
+      "options": {
+        "a": "Uploads local repository content to a remote repository",
+        "b": "Downloads content from a remote repository",
+        "c": "Creates a new branch",
+        "d": "Combines two branches"
+      },
+      "answer": "a",
+      "explanation": "The 'git push' command uploads content from a local repository to a remote repository."
+    },
+    {
+      "number": 10,
+      "question": "What is GitHub Pages used for?",
+      "options": {
+        "a": "Documentation",
+        "b": "Hosting static websites directly from a GitHub repository",
+        "c": "Managing project tasks",
+        "d": "Tracking issues"
+      },
+      "answer": "b",
+      "explanation": "GitHub Pages is a static site hosting service that takes HTML, CSS, and JavaScript files directly from a repository and publishes a website."
+    }
+  ],
+  "nodejs": [
+    {
+      "number": 1,
+      "question": "What is Node.js?",
+      "options": {
+        "a": "A JavaScript library",
+        "b": "A runtime environment for executing JavaScript outside the browser",
+        "c": "A database management system",
+        "d": "A programming language"
+      },
+      "answer": "b",
+      "explanation": "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine that allows you to execute JavaScript code outside of a web browser."
+    },
+    {
+      "number": 2,
+      "question": "Which command is used to initialize a new Node.js project?",
+      "options": {
+        "a": "node init",
+        "b": "npm start",
+        "c": "npm init",
+        "d": "node start"
+      },
+      "answer": "c",
+      "explanation": "The 'npm init' command is used to create a new package.json file for a Node.js project."
+    },
+    {
+      "number": 3,
+      "question": "What is npm?",
+      "options": {
+        "a": "Node Package Manager",
+        "b": "Node Programming Method",
+        "c": "New Project Module",
+        "d": "Node Process Monitor"
+      },
+      "answer": "a",
+      "explanation": "npm (Node Package Manager) is the default package manager for Node.js, used for installing and managing project dependencies."
+    },
+    {
+      "number": 4,
+      "question": "What file contains metadata about a Node.js project?",
+      "options": {
+        "a": "node.js",
+        "b": "package.json",
+        "c": "app.js",
+        "d": "config.js"
+      },
+      "answer": "b",
+      "explanation": "The package.json file contains metadata about a Node.js project, including its dependencies, scripts, and other configuration details."
+    },
+    {
+      "number": 5,
+      "question": "Which of the following is NOT a core module in Node.js?",
+      "options": {
+        "a": "http",
+        "b": "fs",
+        "c": "path",
+        "d": "express"
+      },
+      "answer": "d",
+      "explanation": "Express is not a core module in Node.js. It's a popular third-party web framework that must be installed via npm. http, fs, and path are all built-in core modules."
+    },
+    {
+      "number": 6,
+      "question": "What does the Node.js 'fs' module do?",
+      "options": {
+        "a": "Creates full-stack applications",
+        "b": "Handles file system operations",
+        "c": "Manages server firewalls",
+        "d": "Formats strings"
+      },
+      "answer": "b",
+      "explanation": "The 'fs' (file system) module provides an API for interacting with the file system in a way modeled on standard POSIX functions."
+    },
+    {
+      "number": 7,
+      "question": "What is the event-driven architecture in Node.js?",
+      "options": {
+        "a": "A design pattern where UI responds to user interactions",
+        "b": "A programming pattern where execution is tied to events",
+        "c": "A way to organize files in a project",
+        "d": "A method for handling database connections"
+      },
+      "answer": "b",
+      "explanation": "Node.js uses an event-driven architecture where certain functions (callbacks) are executed when specific events occur, allowing for non-blocking I/O operations."
+    },
+    {
+      "number": 8,
+      "question": "What is middleware in Express.js?",
+      "options": {
+        "a": "Software that connects a database to Node.js",
+        "b": "Functions that have access to the request and response objects",
+        "c": "A type of database",
+        "d": "The HTML templates used by Express"
+      },
+      "answer": "b",
+      "explanation": "Middleware functions in Express.js are functions that have access to the request object, the response object, and the next function in the application's request-response cycle."
+    },
+    {
+      "number": 9,
+      "question": "How do you include another module in a Node.js file?",
+      "options": {
+        "a": "import module",
+        "b": "require('module')",
+        "c": "include 'module'",
+        "d": "using module"
+      },
+      "answer": "b",
+      "explanation": "In Node.js, the require() function is used to include modules in your file. ES6 import syntax is also supported in newer versions with proper configuration."
+    },
+    {
+      "number": 10,
+      "question": "What is the purpose of package-lock.json?",
+      "options": {
+        "a": "To lock the packages from being updated",
+        "b": "To describe the exact dependency tree that was generated",
+        "c": "To store sensitive configuration information",
+        "d": "To define custom scripts for the project"
+      },
+      "answer": "b",
+      "explanation": "The package-lock.json file is automatically generated for any operations where npm modifies the node_modules tree or package.json. It describes the exact dependency tree that was generated, ensuring that subsequent installs will generate identical trees."
     }
   ]
+}
