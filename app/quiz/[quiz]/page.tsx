@@ -60,7 +60,7 @@ function QuizApp() {
   const handleAnswerSelect = (option: string) => {
     if (selectedAnswer !== null) return;
 
-    const correctOption = selectedQuiz?.[currentQuestion]?.correctAnswer;
+    const correctOption = selectedQuiz[currentQuestion]?.correctAnswer;
     setSelectedAnswer(option);
     setCorrectAnswer(correctOption ?? null);
   };
@@ -119,8 +119,7 @@ function QuizApp() {
 
               <div className="flex justify-between items-center mb-4">
                 <div className="text-lg font-semibold text-black">
-                  Question{" "}
-                  {selectedQuiz && selectedQuiz[currentQuestion]?.number}
+                  Question {selectedQuiz[currentQuestion]?.number}
                 </div>
                 <div
                   className={`rounded-full px-3 py-1 font-bold ${
@@ -135,14 +134,13 @@ function QuizApp() {
 
               <div className="bg-gray-50 p-6 rounded-lg shadow-sm mb-6">
                 <p className="text-lg font-medium text-gray-900">
-                  {selectedQuiz && selectedQuiz[currentQuestion]?.question}
+                  {selectedQuiz[currentQuestion]?.question}
                 </p>
               </div>
 
               <div className="grid gap-4">
                 {Object.entries(
-                  selectedQuiz &&
-                    Object.entries(selectedQuiz[currentQuestion]?.options || {})
+                  selectedQuiz?.[currentQuestion]?.options || {}
                 ).map(([key, value]) => {
                   const isCorrect = key === correctAnswer;
                   const isSelected = key === selectedAnswer;
