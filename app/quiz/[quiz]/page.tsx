@@ -1,19 +1,30 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import quizData from "@/data/data.json";
-import { Answer, Question } from "@/type/types";
+import { Question } from "@/type/types";
 
 type QuizDataType = Record<string, Question[]>;
 
 function QuizApp() {
+  const router = useRouter();
   const { quiz } = useParams<{ quiz: string }>();
-  const typedQuizData: QuizDataType = quizData;
+
+  const typedQuizData: QuizDataType = Object.fromEntries(
+    Object.entries(quizData).map(([key, questions]) => [
+      key,
+      questions.map((question) => ({
+        ...question,
+        correctAnswer: question.answer,
+      })),
+    ])
+  );
 
   const selectedQuiz: Question[] | undefined = typedQuizData[quiz];
 
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+  const [correctAnswer, setCorrectAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState<boolean>(false);
   const [timeRemaining, setTimeRemaining] = useState<number>(60);
   const [timerId, setTimerId] = useState<NodeJS.Timeout | null>(null);
@@ -47,7 +58,11 @@ function QuizApp() {
   }
 
   const handleAnswerSelect = (option: string) => {
+    if (selectedAnswer !== null) return;
+
+    const correctOption = selectedQuiz?.[currentQuestion]?.correctAnswer;
     setSelectedAnswer(option);
+    setCorrectAnswer(correctOption ?? null);
   };
 
   const handleNextQuestion = () => {
@@ -56,10 +71,15 @@ function QuizApp() {
     if (currentQuestion + 1 < selectedQuiz.length) {
       setCurrentQuestion((prev) => prev + 1);
       setSelectedAnswer(null);
+      setCorrectAnswer(null);
       setTimeRemaining(60);
     } else {
       setShowResult(true);
     }
+  };
+
+  const handleNavigate = () => {
+    router.push("/home");
   };
 
   const progressPercentage = (currentQuestion / selectedQuiz.length) * 100;
@@ -68,7 +88,10 @@ function QuizApp() {
     <div className="min-h-screen bg-gray-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl w-full space-y-8 bg-white p-10 rounded-xl shadow-lg">
         <div>
-          <h2 className="text-center text-3xl font-extrabold text-gray-900">
+          <h2
+            className="text-center text-3xl font-extrabold text-gray-900 cursor-pointer"
+            onClick={handleNavigate}
+          >
             {quiz.charAt(0).toUpperCase() + quiz.slice(1)} Quiz
           </h2>
           {!showResult && (
@@ -96,7 +119,8 @@ function QuizApp() {
 
               <div className="flex justify-between items-center mb-4">
                 <div className="text-lg font-semibold text-black">
-                  Question {selectedQuiz[currentQuestion].number}
+                  Question{" "}
+                  {selectedQuiz && selectedQuiz[currentQuestion]?.number}
                 </div>
                 <div
                   className={`rounded-full px-3 py-1 font-bold ${
@@ -111,26 +135,37 @@ function QuizApp() {
 
               <div className="bg-gray-50 p-6 rounded-lg shadow-sm mb-6">
                 <p className="text-lg font-medium text-gray-900">
-                  {selectedQuiz[currentQuestion].question}
+                  {selectedQuiz && selectedQuiz[currentQuestion]?.question}
                 </p>
               </div>
 
               <div className="grid gap-4">
-                {Object.entries(selectedQuiz[currentQuestion].options).map(
-                  ([key, value]) => (
+                {Object.entries(
+                  selectedQuiz &&
+                    Object.entries(selectedQuiz[currentQuestion]?.options || {})
+                ).map(([key, value]) => {
+                  const isCorrect = key === correctAnswer;
+                  const isSelected = key === selectedAnswer;
+
+                  return (
                     <button
                       key={key}
                       onClick={() => handleAnswerSelect(key)}
+                      disabled={selectedAnswer !== null}
                       className={`px-6 py-4 border rounded-lg text-left text-lg transition duration-150 ${
-                        selectedAnswer === key
-                          ? "bg-blue-500 text-white border-blue-500"
-                          : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50"
+                        isSelected
+                          ? isCorrect
+                            ? "bg-green-400 text-black border-green-500"
+                            : "bg-red-400 text-black border-red-500"
+                          : isCorrect
+                          ? "bg-green-400 text-black border-green-500"
+                          : "bg-white text-black border-gray-300 hover:bg-gray-50"
                       }`}
                     >
                       <span className="font-semibold">{key}) </span> {value}
                     </button>
-                  )
-                )}
+                  );
+                })}
               </div>
 
               <div className="mt-8 flex justify-end">

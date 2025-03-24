@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { LayoutProps } from "@/type/types";
 import React, { useEffect, useRef, useState } from "react";
 import { createNoise3D } from "simplex-noise";
 
@@ -15,18 +16,7 @@ const Layout = ({
   speed = "fast",
   waveOpacity = 0.5,
   ...props
-}: {
-  children?: React.ReactNode;
-  className?: string;
-  containerClassName?: string;
-  colors?: string[];
-  waveWidth?: number;
-  backgroundFill?: string;
-  blur?: number;
-  speed?: "slow" | "fast";
-  waveOpacity?: number;
-  [key: string]: any;
-}) => {
+}: LayoutProps) => {
   const noise = createNoise3D();
   let w: number,
     h: number,
